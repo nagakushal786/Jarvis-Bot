@@ -1,0 +1,9 @@
+To create virtual environment: python -m venv jarvis-env
+To activate virtual environment: & D:\jarvis-bot\jarvis-env\Scripts\Activate.ps1  
+To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\main.py
+
+
+Important Notes:
+1. Always run the main.py in virtual environment.
+2. Change the interpreter in command palatte after creating virtual environment.
+3. We used Eel package of python to connect frontend and backend.
