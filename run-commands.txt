@@ -6,4 +6,12 @@ To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\main
 Important Notes:
 1. Always run the main.py in virtual environment.
 2. Change the interpreter in command palatte after creating virtual environment.
-3. We used Eel package of python to connect frontend and backend.
+
+
+Tech Used:
+1. We used Eel package of python to connect frontend and backend.
+2. We used textillate.js for text animation.
+3. We used bootstrap for styling and icons.
+4. We used particle.js for jarvis animation.
+5. We used kopiro github repo for siri-wave animation.
+6. We used pygame package of python for opening sound effect.
