@@ -32,4 +32,10 @@ $(document).ready(function () {
       sync: true
     }
   });
+
+  $('#MicBtn').click(function () {
+    eel.assistant_sound();
+    $('#Oval').attr("hidden", true);
+    $('#SiriWave').attr("hidden", false);
+  });
 });
