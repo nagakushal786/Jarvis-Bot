@@ -18,3 +18,4 @@ Tech Used:
 7. We used pyttsx3 package of python for text to speech conversion.
 8. We used SpeechRecognition and PyAudio packages of python for speech recognition and convert the speech to text.
 9. We used pywhatkit package of python for adding applications as commands to be opened.
+10. We used sqlite3 database for storing application commands.

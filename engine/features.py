@@ -5,6 +5,11 @@ from engine.command import speak_bot
 import os
 import pywhatkit as kit
 import re
+import sqlite3
+import webbrowser
+
+connection=sqlite3.connect('jarvis.db')
+cursor=connection.cursor()
 
 @eel.expose
 def assistant_sound():
@@ -17,11 +22,34 @@ def open_command(query):
     query=query.replace("open", "")
     query.lower()
 
-    if query!="":
-        speak_bot(f"Opening {query}")
-        os.system(query)
-    else:
-        speak_bot("Command not found")
+    app_name=query.strip().lower()
+
+    if app_name!="":
+        try:
+            cursor.execute('SELECT path FROM sys_command WHERE name = ?', (app_name,))
+            results=cursor.fetchall()
+
+            if len(results)!=0:
+                speak_bot(f'Opening {query}')
+                os.startfile(results[0][0])
+
+            elif len(results)==0:
+                cursor.execute('SELECT url FROM web_command WHERE name = ?', (app_name,))
+                results=cursor.fetchall()
+
+                if len(results)!=0:
+                    speak_bot(f'Opening {query}')
+                    webbrowser.open(results[0][0])
+
+                else:
+                    speak_bot(f'Opening {query}')
+                    try:
+                        os.system(query)
+                    except:
+                        speak_bot("Application not found...")
+
+        except:
+            speak_bot("Something went wrong...")
 
 def extract_yt_term(command):
     pattern=r'play\s+(.*?)\s+on\s+youtube'
