@@ -39,4 +39,15 @@ $(document).ready(function () {
     $('#SiriWave').attr("hidden", false);
     eel.all_commands()();
   });
+
+  // Adding the shortcut key
+  function docKeyUp(e) {
+    if (e.key === 'j' && e.metaKey) {
+      eel.assistant_sound();
+      $('#Oval').attr("hidden", true);
+      $('#SiriWave').attr("hidden", false);
+      eel.all_commands()();
+    }
+  }
+  document.addEventListener('keyup', docKeyUp, false);
 });

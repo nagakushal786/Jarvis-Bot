@@ -19,3 +19,6 @@ Tech Used:
 8. We used SpeechRecognition and PyAudio packages of python for speech recognition and convert the speech to text.
 9. We used pywhatkit package of python for adding applications as commands to be opened.
 10. We used sqlite3 database for storing application commands.
+11. We used pvporcupine(1.9.5) package of python for hot word detection like to listen specific keywords.
+12. We used pyautogui package of python for shortcut automation.
+13. We used multiprocessing package of python for multi-threading.
