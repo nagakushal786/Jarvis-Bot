@@ -6,11 +6,14 @@ import os
 import pywhatkit as kit
 import sqlite3
 import webbrowser
-from engine.helper import extract_yt_term
+from engine.helper import extract_yt_term, remove_words
 import pvporcupine
 import pyaudio
 import struct
 import time
+from pipes import quote
+import subprocess
+import pyautogui
 
 connection=sqlite3.connect('jarvis.db')
 cursor=connection.cursor()
@@ -96,3 +99,53 @@ def hot_word():
             paud.terminate()
         if audio_stream is not None:
             audio_stream.close()
+
+def find_contact(query):
+    words_to_remove=[ASSISTANT_NAME, 'make', 'a', 'to', 'phone', 'call', 'video', 'send', 'message', 'whatsapp']
+    query=remove_words(query, words_to_remove)
+
+    try:
+        query=query.strip().lower()
+        cursor.execute("SELECT mobile_no FROM contacts WHERE LOWER(name) LIKE ? OR LOWER(name) LIKE ?", ('%'+query+'%', query+'%'))
+        results=cursor.fetchall()
+        mobile_num_str=str(results[0][0])
+        if not mobile_num_str.startswith('+91'):
+            mobile_num_str='+91'+mobile_num_str
+
+        return mobile_num_str, query
+    except:
+        speak_bot("No contact found")
+        return 0, 0
+    
+def whats_app(mobile_no, message, flag, name):
+    if flag=='message':
+        target_tab=20
+        jarvis_message="Message successfully sent to "+name
+    elif flag=='call':
+        target_tab=14
+        message=""
+        jarvis_message="Calling "+name
+    elif flag=='video call':
+        target_tab=13
+        message=""
+        jarvis_message="Starting video call with "+name
+
+    # Encoding message for url
+    encoded_message=quote(message)
+
+    # Construction of shell based whatsapp url
+    whatsapp_url=f'whatsapp://send?phone={mobile_no}&text={encoded_message}'
+
+    # Start command of whatsapp
+    full_command=f'start "" "{whatsapp_url}"'
+
+    subprocess.run(full_command, shell=True)
+    time.sleep(5)
+    subprocess.run(full_command, shell=True)
+
+    pyautogui.hotkey('ctrl', 'f')
+    for i in range(1, target_tab):
+        pyautogui.hotkey('tab')
+
+    pyautogui.hotkey('enter')
+    speak_bot(jarvis_message)

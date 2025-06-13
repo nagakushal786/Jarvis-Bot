@@ -1,9 +1,10 @@
 # To test the hot word detection
 
 import struct
-import time
 import pvporcupine
 import pyaudio
+import subprocess, time, pyautogui
+from urllib.parse import quote
 
 def hot_word():
     porcupine=None
@@ -42,4 +43,22 @@ def hot_word():
         if audio_stream is not None:
             audio_stream.close()
 
-hot_word()
+def debug_tab_count(mobile_no, flag):
+    # Open chat
+    whatsapp_url = f'whatsapp://send?phone={mobile_no}'
+    subprocess.run(f'start "" "{whatsapp_url}"', shell=True)
+    time.sleep(5)
+
+    # Focus the window
+    pyautogui.hotkey('ctrl', 'f')
+    time.sleep(0.5)
+
+    # Try pressing TAB and read captions
+    for i in range(1, 20):
+        pyautogui.hotkey('tab')
+        time.sleep(0.2)
+        # Make sure system is reading UI focus
+        # You'll need a tool like Windows Narrator, NVDA, or a screen reader
+        print("Pressed TAB:", i)
+
+debug_tab_count("+917780737761", "call")
