@@ -10,6 +10,7 @@ def speak_bot(text):
   engine.setProperty('rate', 174)
   eel.DisplayMessage(text)
   engine.say(text)
+  eel.receiveText(text)
   engine.runAndWait()
 
 @eel.expose
@@ -36,23 +37,28 @@ def take_command():
   return query.lower()
 
 @eel.expose
-def all_commands():
-  try:
+def all_commands(message=1):
+  if message==1:
     query=take_command()
+    eel.sendText(query)
+  else:
+    query=message
+    eel.sendText(query)
 
+  try:
     if "open" in query:
       from engine.features import open_command
       open_command(query)
     elif "on youtube" in query:
       from engine.features import play_youtube
       play_youtube(query)
-    elif "send message" in query or "phone call" in query or "video call" in query:
+    elif "send message" in query or "send a message" in query or "phone call" in query or "video call" in query:
       from engine.features import find_contact, whats_app
       flag=""
       contact_no, name=find_contact(query)
 
       if(contact_no!=0):
-        if "send message" in query:
+        if "send message" in query or "send a message" in query:
           flag="message"
           speak_bot("What message to send?")
           query=take_command()

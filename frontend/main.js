@@ -50,4 +50,44 @@ $(document).ready(function () {
     }
   }
   document.addEventListener('keyup', docKeyUp, false);
+
+  function playAssistant(message) {
+    if (message != "") {
+      $('#Oval').attr("hidden", true);
+      $('#SiriWave').attr("hidden", false);
+      eel.all_commands(message);
+      $('#chatbox').val("");
+      $('#MicBtn').attr("hidden", false);
+      $('#SendBtn').attr("hidden", true);
+    }
+  }
+
+  function ShowHideButton(message) {
+    if (message.length == 0) {
+      $('#MicBtn').attr("hidden", false);
+      $('#SendBtn').attr("hidden", true);
+    } else {
+      $('#MicBtn').attr("hidden", true);
+      $('#SendBtn').attr("hidden", false);
+    }
+  }
+
+  $("#chatbox").keyup(function () {
+    let message = $("#chatbox").val();
+    ShowHideButton(message);
+  });
+
+  $("#SendBtn").click(function () {
+    let message = $("#chatbox").val();
+    playAssistant(message);
+  });
+
+  // To make work when we press Enter
+  $("#chatbox").keypress(function (e) {
+    key = e.which;
+    if (key == 13) {
+      let message = $("#chatbox").val();
+      playAssistant(message);
+    }
+  });
 });
