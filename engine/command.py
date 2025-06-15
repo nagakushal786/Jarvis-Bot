@@ -4,6 +4,7 @@ import eel
 import time
 
 def speak_bot(text):
+  text=str(text)
   engine=pyttsx3.init('sapi5')
   voices=engine.getProperty('voices')
   engine.setProperty('voice', voices[0].id)
@@ -69,7 +70,8 @@ def all_commands(message=1):
 
         whats_app(contact_no, query, flag, name)
     else:
-      print("Not a command to run...")
+      from engine.features import chat_bot
+      chat_bot(query)
   except:
     print("Error in running the query...")
 

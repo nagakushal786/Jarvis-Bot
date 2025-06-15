@@ -20,5 +20,8 @@ Tech Used:
 9. We used pywhatkit package of python for adding applications as commands to be opened.
 10. We used sqlite3 database for storing application commands.
 11. We used pvporcupine(1.9.5) package of python for hot word detection like to listen specific keywords.
-12. We used pyautogui package of python for shortcut automation.
+12. We used pyautogui package of python for shortcut and whatsapp automation.
 13. We used multiprocessing package of python for multi-threading.
+14. We used hugchat package for integrating AI feature.
+15. We used Cookie-Editor chrome extension to get the login details of Hugging Face.
+16. Current model of Hugging Face being used - meta-llama/Llama-3.3-70B-Instruct.

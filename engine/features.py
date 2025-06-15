@@ -14,6 +14,7 @@ import time
 from pipes import quote
 import subprocess
 import pyautogui
+from hugchat import hugchat
 
 connection=sqlite3.connect('jarvis.db')
 cursor=connection.cursor()
@@ -149,3 +150,12 @@ def whats_app(mobile_no, message, flag, name):
 
     pyautogui.hotkey('enter')
     speak_bot(jarvis_message)
+
+def chat_bot(query):
+    user_input=query.lower()
+    chatbot=hugchat.ChatBot(cookie_path="engine/cookies.json")
+    id=chatbot.new_conversation()
+    chatbot.change_conversation(id)
+    response=chatbot.chat(user_input)
+    speak_bot(response)
+    return response
