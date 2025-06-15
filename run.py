@@ -1,4 +1,5 @@
 import multiprocessing
+import subprocess
 
 def start_jarvis():
   print("Jarvis starting...")
@@ -11,6 +12,8 @@ def listen_hotword():
   hot_word()
 
 if __name__=="__main__":
+  subprocess.call(['cmd.exe', '/c', r'device.bat'])
+
   p1=multiprocessing.Process(target=start_jarvis)
   p2=multiprocessing.Process(target=listen_hotword)
   p1.start()

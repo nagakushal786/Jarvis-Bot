@@ -1,6 +1,6 @@
 import pygame
 import eel
-from engine.config import ASSISTANT_NAME
+from engine.config import ASSISTANT_NAME, ADB_PATH
 from engine.command import speak_bot
 import os
 import pywhatkit as kit
@@ -159,3 +159,91 @@ def chat_bot(query):
     response=chatbot.chat(user_input)
     speak_bot(response)
     return response
+
+def make_call(name, mobile_no):
+    mobile_no=mobile_no.replace(" ", "")
+    speak_bot(f"Calling {name}...")
+    command=ADB_PATH+" shell am start -a android.intent.action.CALL -d tel:"+mobile_no
+    os.system(command)
+
+def send_message(message, mobile_no, name):
+    from engine.helper import key_event, tap_event, adb_input, go_complete_back, replace_spaces_with_percent_s
+    message=replace_spaces_with_percent_s(message)
+    mobile_no=replace_spaces_with_percent_s(mobile_no)
+    speak_bot(f"Sending message to {name}...")
+
+    go_complete_back(4)
+    time.sleep(1)
+    # Home screen
+    key_event(3)
+
+    tap_event(411, 2117)
+    tap_event(931, 2081)
+    adb_input(mobile_no)
+    tap_event(508, 558)
+    tap_event(301, 2113)
+    adb_input(message)
+    tap_event(966, 1389)
+
+    speak_bot(f"Message sent successfully to {name}")
+
+def note_taking(heading, note):
+    from engine.helper import key_event, tap_event, adb_input, go_complete_back, replace_spaces_with_percent_s
+    heading=replace_spaces_with_percent_s(heading)
+    note=replace_spaces_with_percent_s(note)
+    speak_bot(f"Taking a note...")
+
+    go_complete_back(4)
+    time.sleep(1)
+    # Home screen
+    key_event(3)
+
+    tap_event(794, 667)
+    tap_event(849, 751)
+    tap_event(940, 1916)
+    tap_event(132, 502)
+    adb_input(heading)
+    tap_event(576, 2171)
+    tap_event(89, 2158)
+    tap_event(599, 1875)
+    tap_event(576, 2171)
+    adb_input(note)
+    tap_event(986, 226)
+    tap_event(79, 212)
+
+    speak_bot("Note successfully taken...")
+
+def take_selfie():
+    from engine.helper import key_event, tap_event, adb_input, go_complete_back
+
+    go_complete_back(4)
+    time.sleep(1)
+    # Home screen
+    key_event(3)
+
+    speak_bot("Ready to take a selfie...")
+
+    tap_event(921, 2107)
+    tap_event(912, 2049)
+    speak_bot("Say cheese...")
+    tap_event(537, 2054)
+
+    speak_bot("Selfie taken successfully...")
+
+def record_video():
+    from engine.helper import key_event, tap_event, adb_input, go_complete_back
+
+    go_complete_back(4)
+    time.sleep(1)
+    # Home screen
+    key_event(3)
+
+    speak_bot("Capturing a video...")
+
+    tap_event(921, 2107)
+    tap_event(297, 1836)
+    tap_event(537, 2054)
+    time.sleep(4)
+    tap_event(541, 2058)
+    
+    speak_bot("Video captured successfully...")

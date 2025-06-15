@@ -1,11 +1,21 @@
-To create virtual environment: python -m venv jarvis-env
-To activate virtual environment: & D:\jarvis-bot\jarvis-env\Scripts\Activate.ps1  
-To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\main.py
+1. To create virtual environment: python -m venv jarvis-env
+2. To activate virtual environment: & D:\jarvis-bot\jarvis-env\Scripts\Activate.ps1  
+3. To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\main.py
+
+
+Android mobile automation commands:
+1. AVAILABLE DEVICES command: adb devices
+2. CALL command: adb shell am start -a android.intent.action.CALL -d tel:+91xxxxxxxxxx
+3. TAP command: adb shell input tap x y
+(x, y - co-ordinates of the app on mobile screen you want to open)
+4. INPUT command: adb shell input text "kushal%shello%sI%sam%sJarvis"
+5. KEY EVENTS: adb shell input keyevent 3
 
 
 Important Notes:
 1. Always run the main.py in virtual environment.
 2. Change the interpreter in command palatte after creating virtual environment.
+3. For android mobile automation, best practice is to connect your laptop and phone with USB cable.
 
 
 Tech Used:
@@ -25,3 +35,4 @@ Tech Used:
 14. We used hugchat package for integrating AI feature.
 15. We used Cookie-Editor chrome extension to get the login details of Hugging Face.
 16. Current model of Hugging Face being used - meta-llama/Llama-3.3-70B-Instruct.
+17. We used ADB(Android Debug Bridge) command line tools for mobile automation.
