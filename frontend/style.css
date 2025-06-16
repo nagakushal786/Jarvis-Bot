@@ -13,6 +13,34 @@ body{
   align-items: center;
 }
 
+.jarvis-logo {
+  position: absolute;
+  width: 47%;
+  height: 47%;
+  object-fit: contain;
+  z-index: 2;
+  animation: logoPulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out infinite;
+}
+
+.jarvis-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes logoPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.03);
+    opacity: 0.95;
+  }
+}
+
 .square span:nth-child(1){
   position: absolute;
   top: 0;
