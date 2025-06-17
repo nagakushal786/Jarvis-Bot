@@ -59,3 +59,8 @@ python -m venv jarvis-env
 ```bash
 python run.py
 ```
+
+## Important Notes:
+* Always run the run.py in virtual environment.
+* Change the interpreter in command palatte after creating virtual environment.
+* For android mobile automation, best practice is to connect your laptop and phone with USB cable.
