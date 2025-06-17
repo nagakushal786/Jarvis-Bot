@@ -1,6 +1,6 @@
 1. To create virtual environment: python -m venv jarvis-env
 2. To activate virtual environment: & D:\jarvis-bot\jarvis-env\Scripts\Activate.ps1  
-3. To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\main.py
+3. To run main file: D:\jarvis-bot\jarvis-env\Scripts\python.exe D:\jarvis-bot\run.py
 
 
 Android mobile automation commands:
