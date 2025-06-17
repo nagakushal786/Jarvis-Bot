@@ -13,43 +13,7 @@ This project is a Python-based voice assistant inspired by J.A.R.V.I.S. It lever
 - Interact with the system (open applications like system commands or web commands)
 - Send messages, make a phone call or video call through your whatsapp
 - Send messages, make a phone call through your mobile
-- Additional features like recording video, taking a selfie and taking notes through your mobile
-
-
-## 📂 Project Structure
-
-jarvis-bot/
-│
-├── engine/
-│   ├── auth/
-│   │   ├── samples/
-│   │   ├── trainer/
-│   │   ├── haarcascade_frontalface_default.xml
-│   │   ├── recognize.py
-│   │   ├── sample.py
-│   │   ├── trainer.py
-│   ├── command.py
-│   ├── config.py
-│   ├── cookies.json
-│   ├── db.py
-│   ├── features.py
-│   ├── helper.py
-│
-├── frontend/
-│   ├── assets/
-│   ├── controller.js
-│   ├── index.html
-│   ├── main.js
-│   ├── script.js
-│   ├── style.css
-│
-├── contacts.csv
-├── device.bat
-├── main.py
-├── run_commands.txt
-├── run.py      
-├── test.py
-├── jarvis-env/      
+- Additional features like recording video, taking a selfie and taking notes through your mobile  
 
 
 ## 🧰 Tech Stack & Libraries
