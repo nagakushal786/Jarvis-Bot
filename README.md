@@ -20,34 +20,36 @@ This project is a Python-based voice assistant inspired by J.A.R.V.I.S. It lever
 
 jarvis-bot/
 │
-├── engine
-    ├── auth
-        ├── samples
-        ├── trainer
-        ├── haarcascade_frontalface_default.xml
-        ├── recognize.py
-        ├── sample.py
-        ├── trainer.py
-    ├── command.py
-    ├── config.py
-    ├── cookies.json
-    ├── db.py
-    ├── features.py
-    ├── helper.py
-├── frontend
-    ├── assets
-    ├── controller.js
-    ├── index.html
-    ├── main.js
-    ├── script.js
-    ├── style.css
+├── engine/
+│   ├── auth/
+│   │   ├── samples/
+│   │   ├── trainer/
+│   │   ├── haarcascade_frontalface_default.xml
+│   │   ├── recognize.py
+│   │   ├── sample.py
+│   │   ├── trainer.py
+│   ├── command.py
+│   ├── config.py
+│   ├── cookies.json
+│   ├── db.py
+│   ├── features.py
+│   ├── helper.py
+│
+├── frontend/
+│   ├── assets/
+│   ├── controller.js
+│   ├── index.html
+│   ├── main.js
+│   ├── script.js
+│   ├── style.css
+│
 ├── contacts.csv
 ├── device.bat
 ├── main.py
 ├── run_commands.txt
-├── run.py # Entry point of the project
+├── run.py      
 ├── test.py
-├── jarvis-env/ # Virtual environment (contains all dependencies)
+├── jarvis-env/      
 
 
 ## 🧰 Tech Stack & Libraries
