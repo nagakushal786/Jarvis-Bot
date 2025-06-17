@@ -40,4 +40,35 @@ $(document).ready(function () {
       chatBox.scrollTop = chatBox.scrollHeight;
     }
   }
+
+  eel.expose(hideLoader)
+  function hideLoader() {
+    $("#Loader").attr("hidden", true);
+    $("#FaceAuth").attr("hidden", false);
+  }
+
+  eel.expose(hideFaceAuth)
+  function hideFaceAuth() {
+    $("#FaceAuth").attr("hidden", true);
+    $("#FaceAuthSuccess").attr("hidden", false);
+  }
+
+  eel.expose(hideFaceAuthSuccess)
+  function hideFaceAuthSuccess() {
+    $("#FaceAuthSuccess").attr("hidden", true);
+    $("#HelloGreet").attr("hidden", false);
+  }
+
+  eel.expose(hideStart)
+  function hideStart() {
+    $("#Start").attr("hidden", true);
+
+    setTimeout(function () {
+      $("#Oval").addClass("animate__animated animate__zoomIn");
+    }, 1000);
+
+    setTimeout(function () {
+      $("#Oval").attr("hidden", false);
+    }, 1000);
+  }
 });

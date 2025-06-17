@@ -36,3 +36,4 @@ Tech Used:
 15. We used Cookie-Editor chrome extension to get the login details of Hugging Face.
 16. Current model of Hugging Face being used - meta-llama/Llama-3.3-70B-Instruct.
 17. We used ADB(Android Debug Bridge) command line tools for mobile automation.
+18. We used cv2, PIL packages of python for face authentication.

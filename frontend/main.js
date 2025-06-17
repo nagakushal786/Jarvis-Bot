@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  eel.start_bot()()
+
   $('.text').textillate({
     loop: true,
     sync: true,
