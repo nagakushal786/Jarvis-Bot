@@ -5,3 +5,4 @@ jarvis.db
 /engine/__pycache__
 /engine/cookies.json
 /engine/auth/__pycache__
+__pycache__
