@@ -38,7 +38,7 @@ def open_command(query):
             results=cursor.fetchall()
 
             if len(results)!=0:
-                speak_bot(f'Opening {query}')
+                speak_bot(f'Opening{query}...')
                 os.startfile(results[0][0])
 
             elif len(results)==0:
@@ -46,11 +46,11 @@ def open_command(query):
                 results=cursor.fetchall()
 
                 if len(results)!=0:
-                    speak_bot(f'Opening {query}')
+                    speak_bot(f'Opening{query}...')
                     webbrowser.open(results[0][0])
 
                 else:
-                    speak_bot(f'Opening {query}')
+                    speak_bot(f'Opening{query}...')
                     try:
                         os.system(query)
                     except:
@@ -61,7 +61,7 @@ def open_command(query):
 
 def play_youtube(query):
     search_term=extract_yt_term(query)
-    speak_bot(f"Playing {search_term} on Youtube")
+    speak_bot(f"Playing {search_term} on Youtube...")
     kit.playonyt(search_term)
 
 def hot_word():
@@ -121,15 +121,15 @@ def find_contact(query):
 def whats_app(mobile_no, message, flag, name):
     if flag=='message':
         target_tab=20
-        jarvis_message="Message successfully sent to "+name
+        jarvis_message="Message successfully sent to "+name+"..."
     elif flag=='call':
         target_tab=14
         message=""
-        jarvis_message="Calling "+name
+        jarvis_message="Calling "+name+"..."
     elif flag=='video call':
         target_tab=13
         message=""
-        jarvis_message="Starting video call with "+name
+        jarvis_message="Starting video call with "+name+"..."
 
     # Encoding message for url
     encoded_message=quote(message)
@@ -185,7 +185,7 @@ def send_message(message, mobile_no, name):
     adb_input(message)
     tap_event(966, 1389)
 
-    speak_bot(f"Message sent successfully to {name}")
+    speak_bot(f"Message sent successfully to {name}...")
 
 def note_taking(heading, note):
     from engine.helper import key_event, tap_event, adb_input, go_complete_back, replace_spaces_with_percent_s

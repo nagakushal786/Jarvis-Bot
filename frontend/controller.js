@@ -1,6 +1,9 @@
 $(document).ready(function () {
   eel.expose(DisplayMessage)
   function DisplayMessage(message) {
+    $(".initial-message li:first").text(message);
+    $(".initial-message").textillate('start');
+
     $(".siri-message li:first").text(message);
     $(".siri-message").textillate('start');
   }

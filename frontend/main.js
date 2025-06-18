@@ -22,6 +22,19 @@ $(document).ready(function () {
     autostart: true
   });
 
+  $(".initial-message").textillate({
+    loop: true,
+    sync: true,
+    in: {
+      effect: 'fadeInUp',
+      sync: true
+    },
+    out: {
+      effect: 'fadeOutUp',
+      sync: true
+    }
+  });
+
   $('.siri-message').textillate({
     loop: true,
     sync: true,
