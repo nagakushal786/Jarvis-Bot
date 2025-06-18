@@ -97,14 +97,14 @@ def all_commands(message=1):
     elif "take a selfie" in query:
       from engine.features import take_selfie
       take_selfie()
+      
+    elif "what" in query or "where" in query or "why" in query or "how" in query or "who" in query or "give" in query:
+      from engine.features import chat_bot
+      chat_bot(query)
 
     elif "capture a video":
       from engine.features import record_video
       record_video()
-      
-    else:
-      from engine.features import chat_bot
-      chat_bot(query)
   except:
     print("Error in running the query...")
 
