@@ -51,6 +51,7 @@ jarvis-bot/
 ├── run_commands.txt
 ├── run.py
 ├── test.py
+├── jarvis.db
 ├── jarvis-env/
 
 ```
@@ -110,6 +111,9 @@ Now follow the below steps
 ```bash
 adb devices
 ```
+* Now go to [`google`](https://google.com) and click on your dots matrix beside your account logo. Now go to contacts and click on `export` button and export the contacts as `Google CSV`. Now get the downloaded `csv file` into the main folder.
+* Now go to `db.py` and create the tables, insert the values for system commands and web commands respectively into the database by uncommenting and commenting the required query codes.
+* After that run the code in `db.py` to insert your contacts into the database.
 * Finally run the `run.py` in the virtual environment file to access the personal assistant.
 
 
